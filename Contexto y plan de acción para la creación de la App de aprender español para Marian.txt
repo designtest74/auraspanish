@@ -1,0 +1,58 @@
+================================================================================
+AURA ESPAÑOL - CAPÍTULO 1: LOS COLORES Y COMBINACIONES
+Propuesta Pedagógica, Arquitectura y Guía de Uso para Marian
+================================================================================
+
+1. RESUMEN DEL PROYECTO
+--------------------------------------------------------------------------------
+- Nombre de la Aplicación: Aura Español
+- Público Objetivo: Niños en edad escolar (5 a 11 años) aprendiendo español en Londres
+  (con adaptaciones neuroinclusivas para TDAH y TEA/Autismo), escalable a jóvenes y adultos.
+- Ubicación del Archivo: index.html (aplicación autónoma web/móvil lista para abrir en navegador).
+- Enfoque Pedagógico: Diseño Universal para el Aprendizaje (DUA), Micro-aprendizaje,
+  Andamiaje (Scaffolding), baja carga sensorial y ludificación formativa (estilo Kahoot).
+
+2. MÓDULO TEMÁTICO: CAPÍTULO 1 - LOS COLORES
+--------------------------------------------------------------------------------
+A) Colores Primarios:
+   - Rojo (Red)
+   - Azul (Blue)
+   - Amarillo (Yellow)
+
+B) Combinaciones / Secundarios:
+   - Rojo + Amarillo = Naranja (Orange)
+   - Azul + Amarillo = Verde (Green)
+   - Rojo + Azul = Morado (Purple)
+
+C) Contexto de Uso Cotidiano:
+   - Frutas: fresa (roja), plátano (amarillo), naranja (naranja), uva (morada), manzana (verde/roja), limón (amarillo).
+   - Elementos del entorno: sol (amarillo), cielo (azul), hierba (verde), mar (azul).
+   - Animales: rana (verde), loro (verde/rojo), mariposa (naranja/morada).
+
+3. MODOS DE JUEGO INCLUIDOS EN LA APLICACIÓN
+--------------------------------------------------------------------------------
+1. 🏠 Bienvenida: Registro del nombre del alumno, almacenamiento local y selección de actividad.
+2. 🎮 Quiz Estilo Kahoot: 12 preguntas con 4 tarjetas de colores, retroalimentación positiva,
+   estrellas y temporizador visual opcional (sin estrés de cuenta regresiva).
+3. ✍️ Completar Oraciones: Banco de palabras interactivo para completar frases de contexto ("La fresa es [roja]").
+4. 🧩 Rompecabezas de Letras: Reordenar letras para formar los nombres de los colores (R-O-J-O, A-Z-U-L, etc.).
+5. 🎨 Laboratorio de Mezcla: Experimento visual interactivo donde el alumno mezcla dos colores primarios
+   y descubre el color secundario resultante en español.
+6. 🃏 Desafío de Memoria / Emparejamiento: Juego de cartas para asociar el nombre del color en español
+   con su correspondiente pictograma/emoji.
+7. 📊 Pantalla de Resultados y Logros: Puntuación total, estrellas conseguidas y registro de pistas utilizadas.
+
+4. CARACTERÍSTICAS DE ACCESIBILIDAD Y NEUROINCLUSIÓN (TDAH & AUTISMO)
+--------------------------------------------------------------------------------
+- Modo Enfoque (Low Stimulation): Botón superior accesible en todo momento que desactiva colores
+  brillantes y sombras, pasando a una paleta neutra y relajante de alto contraste para evitar sobrecarga sensorial.
+- Pistas en Inglés bajo demanda (💡 Hint): Apoyo sin penalizaciones punitivas. Registra el uso de andamiaje.
+- Feedback Positivo: Mensajes motivadores ("¡Casi! Intenta de nuevo") en lugar de cruces rojas o sonidos punitivos.
+- 100% Responsivo: Optimizado para pantallas táctiles (tablets/móviles) y ordenadores del aula.
+
+5. CÓMO EJECUTAR LA APLICACIÓN
+--------------------------------------------------------------------------------
+Simplemente haz doble clic sobre el archivo "index.html" en esta carpeta.
+Se abrirá de inmediato en Google Chrome, Microsoft Edge, Safari o cualquier navegador moderno,
+sin necesidad de instalar software adicional ni conexión a servidores externos.
+================================================================================

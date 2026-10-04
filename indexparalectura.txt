@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aura Spanish - Primary Colours & Combinations (London MFL)</title>
+    <style>
+        :root {
+            /* Vibrant Kid-Friendly Theme (Default) */
+            --bg-color: #F0F4FF;
+            --text-color: #1F2937;
+            --text-muted: #4B5563;
+            --card-bg: #FFFFFF;
+            --card-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1), 0 8px 10px -6px rgba(99, 102, 241, 0.05);
+            --border-color: #E2E8F0;
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --accent: #F59E0B;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            
+            /* Kahoot Quadrant Buttons */
+            --btn-red: #E21B3C;
+            --btn-blue: #1368CE;
+            --btn-yellow: #D89E00;
+            --btn-green: #26890C;
+
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --transition-speed: 0.25s;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+        }
+
+        /* Low-Stimulation / Focus Mode (For Autism & ADHD learners) */
+        [data-theme="focus"] {
+            --bg-color: #F9FAFB;
+            --text-color: #111827;
+            --text-muted: #374151;
+            --card-bg: #FFFFFF;
+            --card-shadow: none;
+            --border-color: #9CA3AF;
+            --primary: #374151;
+            --primary-hover: #1F2937;
+            --accent: #4B5563;
+            --success: #374151;
+            --warning: #4B5563;
+            --danger: #4B5563;
+            
+            --btn-red: #374151;
+            --btn-blue: #4B5563;
+            --btn-yellow: #374151;
+            --btn-green: #4B5563;
+
+            --transition-speed: 0s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding-bottom: 70px;
+        }
+
+        #app-container {
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--bg-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* Top Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            background-color: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        [data-theme="focus"] .header-brand {
+            color: var(--text-color);
+        }
+
+        .header-brand span.badge {
+            background: #EEF2FF;
+            color: #4F46E5;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        [data-theme="focus"] .header-brand span.badge {
+            background: #E5E7EB;
+            color: #111827;
+        }
+
+        .toggle-btn {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all var(--transition-speed);
+        }
+
+        .toggle-btn:hover {
+            border-color: var(--primary);
+        }
+
+        /* Top Progress Bar */
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background-color: #E2E8F0;
+            display: none;
+        }
+
+        .progress-bar-container.active {
+            display: block;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4F46E5, #10B981);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        [data-theme="focus"] .progress-bar-fill {
+            background: #111827;
+        }
+
+        /* Main Content Views */
+        main {
+            flex-grow: 1;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .view {
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+
+        .view.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .card-header-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            background-color: #EEF2FF;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        [data-theme="focus"] .card-header-badge {
+            background-color: #E5E7EB;
+            color: #111827;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        /* Audio Button */
+        .audio-btn {
+            background: #EEF2FF;
+            color: #4F46E5;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-left: 8px;
+            vertical-align: middle;
+            transition: transform 0.15s;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.1);
+        }
+
+        [data-theme="focus"] .audio-btn {
+            background: #E5E7EB;
+            color: #111827;
+        }
+
+        /* Big Emojis */
+        .emoji-hero {
+            font-size: 4.5rem;
+            margin: 12px 0;
+            line-height: 1;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
+        }
+
+        /* Primary Action Buttons */
+        .btn {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            border: none;
+            padding: 14px 24px;
+            border-radius: var(--radius-md);
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+            transition: transform 0.15s, background-color var(--transition-speed);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Clue / Hint Box */
+        .clue-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .clue-btn {
+            background: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #FCD34D;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        [data-theme="focus"] .clue-btn {
+            background: #F3F4F6;
+            color: #374151;
+            border-color: #D1D5DB;
+        }
+
+        .clue-text {
+            display: none;
+            background: #FFFBEB;
+            border: 1px dashed #F59E0B;
+            color: #92400E;
+            padding: 10px 14px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            margin-bottom: 14px;
+            text-align: left;
+        }
+
+        .clue-text.show {
+            display: block;
+            animation: fadeIn 0.2s;
+        }
+
+        [data-theme="focus"] .clue-text {
+            background: #F3F4F6;
+            border-color: #9CA3AF;
+            color: #111827;
+        }
+
+        /* 2. KAHOOT QUIZ */
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .quiz-btn {
+            border: none;
+            border-radius: var(--radius-md);
+            color: #FFFFFF;
+            padding: 18px 12px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-height: 85px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+            transition: transform 0.15s;
+        }
+
+        .quiz-btn:active {
+            transform: scale(0.97);
+        }
+
+        .quiz-btn.btn-red { background-color: var(--btn-red); }
+        .quiz-btn.btn-blue { background-color: var(--btn-blue); }
+        .quiz-btn.btn-yellow { background-color: var(--btn-yellow); }
+        .quiz-btn.btn-green { background-color: var(--btn-green); }
+
+        [data-theme="focus"] .quiz-btn {
+            background-color: #FFFFFF;
+            color: #111827;
+            border: 2px solid #9CA3AF;
+            box-shadow: none;
+        }
+
+        /* Feedback Messages */
+        .feedback-box {
+            display: none;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-top: 14px;
+            animation: fadeIn 0.2s;
+        }
+
+        .feedback-box.show {
+            display: block;
+        }
+
+        .feedback-correct {
+            background-color: #D1FAE5;
+            color: #065F46;
+            border: 1px solid #34D399;
+        }
+
+        .feedback-wrong {
+            background-color: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #FCD34D;
+        }
+
+        /* 3. SENTENCE BUILDER */
+        .sentence-display {
+            font-size: 1.35rem;
+            font-weight: 700;
+            padding: 20px 14px;
+            background: #F8FAFC;
+            border: 2px dashed #CBD5E1;
+            border-radius: var(--radius-md);
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        [data-theme="focus"] .sentence-display {
+            background: #FFFFFF;
+            border-color: #9CA3AF;
+        }
+
+        .blank-slot {
+            display: inline-flex;
+            min-width: 100px;
+            padding: 4px 16px;
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            font-weight: 800;
+            justify-content: center;
+        }
+
+        .options-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 14px;
+        }
+
+        .word-pill {
+            padding: 10px 20px;
+            background-color: #EEF2FF;
+            color: #4338CA;
+            border: 2px solid #C7D2FE;
+            border-radius: 24px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .word-pill:hover {
+            background-color: #4F46E5;
+            color: #FFFFFF;
+            border-color: #4F46E5;
+        }
+
+        [data-theme="focus"] .word-pill {
+            background-color: #FFFFFF;
+            color: #111827;
+            border-color: #9CA3AF;
+        }
+
+        /* 4. WORD SCRAMBLE PUZZLE */
+        .tiles-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            min-height: 60px;
+            padding: 12px;
+            background: #F8FAFC;
+            border: 2px dashed #CBD5E1;
+            border-radius: var(--radius-md);
+            margin: 10px 0;
+        }
+
+        .letter-tile {
+            width: 44px;
+            height: 48px;
+            background-color: #FFFFFF;
+            color: #1F2937;
+            border: 2px solid #6366F1;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.06);
+            user-select: none;
+            transition: transform 0.1s;
+        }
+
+        .letter-tile:active {
+            transform: scale(0.92);
+        }
+
+        [data-theme="focus"] .letter-tile {
+            border-color: #4B5563;
+        }
+
+        /* 5. COLOUR LAB */
+        .color-selector {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .color-dot {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 4px solid transparent;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 0.8rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.1);
+        }
+
+        .color-dot.selected {
+            border-color: #111827;
+            transform: scale(1.12);
+        }
+
+        .mixing-flasks {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .flask {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            border: 3px dashed #94A3B8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            transition: all 0.3s;
+        }
+
+        .flask.result-flask {
+            border-style: solid;
+            width: 80px;
+            height: 80px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        /* 6. MATCHING GAME */
+        .memory-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .memory-card {
+            aspect-ratio: 1;
+            background-color: var(--primary);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: transparent;
+            box-shadow: var(--card-shadow);
+            border: 2px solid transparent;
+            transition: transform 0.2s, background-color 0.2s;
+            user-select: none;
+            padding: 6px;
+            text-align: center;
+        }
+
+        [data-theme="focus"] .memory-card {
+            background-color: #E5E7EB;
+            border-color: #9CA3AF;
+        }
+
+        .memory-card.flipped {
+            background-color: #FFFFFF;
+            color: var(--text-color);
+            border-color: var(--primary);
+            transform: rotateY(180deg);
+        }
+
+        .memory-card.matched {
+            background-color: #D1FAE5;
+            color: #065F46;
+            border-color: #34D399;
+            pointer-events: none;
+        }
+
+        /* Bottom Tab Navigation */
+        #bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border-top: 2px solid var(--border-color);
+            display: none;
+            justify-content: space-around;
+            padding: 8px 4px 10px 4px;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            z-index: 50;
+        }
+
+        #bottom-nav.active {
+            display: flex;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 8px;
+            transition: color 0.15s;
+        }
+
+        .nav-btn .nav-icon {
+            font-size: 1.3rem;
+        }
+
+        .nav-btn.active {
+            color: var(--primary);
+        }
+
+        [data-theme="focus"] .nav-btn.active {
+            color: #111827;
+            font-weight: 800;
+        }
+
+        /* Inputs */
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 1.05rem;
+            margin-top: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--primary);
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: fixed;
+            width: 9px;
+            height: 9px;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fallAnimation 3s linear forwards;
+        }
+
+        @keyframes fallAnimation {
+            to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="app-container">
+    <!-- Top Header -->
+    <header>
+        <div class="header-brand">
+            🌟 Aura Spanish <span class="badge">UK MFL</span>
+        </div>
+        <button class="toggle-btn" id="focusToggle" onclick="toggleFocusMode()" aria-label="Toggle Focus Mode">
+            <span>🧠</span> Focus Mode
+        </button>
+    </header>
+    
+    <!-- Top Progress Bar -->
+    <div class="progress-bar-container" id="mainProgress">
+        <div class="progress-bar-fill" id="mainProgressFill"></div>
+    </div>
+
+    <main>
+        <!-- 1. WELCOME VIEW -->
+        <div id="view-welcome" class="view active">
+            <div class="card">
+                <div class="emoji-hero">🦉✨</div>
+                <h2>¡Hola! Welcome to Aura Spanish</h2>
+                <p class="subtitle">Chapter 1: Primary Colours & Combinations</p>
+                
+                <div style="margin: 20px 0; text-align: left;">
+                    <label for="studentName" style="font-weight: 700; font-size: 0.95rem;">What is your name?</label>
+                    <input type="text" id="studentName" placeholder="Enter student name..." autocomplete="name">
+                </div>
+                
+                <button class="btn" onclick="startApp()">Start Learning! 🚀</button>
+            </div>
+
+            <div class="card" style="background-color: #FEF3C7; border: 1px dashed #F59E0B; text-align: left;">
+                <h3 style="font-size: 1rem; color: #92400E; display: flex; align-items: center; gap: 6px;">
+                    🇬🇧 London Teacher & Parent Guide
+                </h3>
+                <p style="font-size: 0.85rem; color: #92400E; margin-top: 6px; line-height: 1.4;">
+                    Designed for UK primary pupils (Modern Foreign Languages). Click the <strong>"Focus Mode"</strong> button above anytime for a low-stimulation, calming interface for ADHD & Autistic learners.
+                </p>
+            </div>
+        </div>
+
+        <!-- 2. KAHOOT QUIZ VIEW -->
+        <div id="view-quiz" class="view">
+            <div class="card">
+                <div class="card-header-badge">Activity 1 • Kahoot Quiz</div>
+                
+                <div class="clue-box">
+                    <span id="quiz-counter" style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Question 1 of 10</span>
+                    <button class="clue-btn" onclick="showClue('quiz-clue')">💡 Clue</button>
+                </div>
+
+                <div id="quiz-clue" class="clue-text">English translation will appear here.</div>
+
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <h2 id="quiz-question" style="font-size: 1.3rem; margin: 0;">¿De qué color es la fresa?</h2>
+                    <button class="audio-btn" onclick="speakCurrentText('quiz')" title="Hear pronunciation">🔊</button>
+                </div>
+                <p id="quiz-en-sub" style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">(What colour is the strawberry?)</p>
+
+                <div id="quiz-emoji" class="emoji-hero">🍓</div>
+
+                <div class="quiz-grid" id="quiz-options">
+                    <!-- Quadrant Buttons Injected by JS -->
+                </div>
+                
+                <div id="quiz-feedback" class="feedback-box"></div>
+                <button id="quiz-next" class="btn" style="display: none;" onclick="nextQuizQuestion()">Next Question ➡️</button>
+            </div>
+        </div>
+
+        <!-- 3. SENTENCE BUILDER VIEW -->
+        <div id="view-sentences" class="view">
+            <div class="card">
+                <div class="card-header-badge">Activity 2 • Sentence Builder</div>
+
+                <div class="clue-box">
+                    <span id="sentence-counter" style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Sentence 1 of 8</span>
+                    <button class="clue-btn" onclick="showClue('sentence-clue')">💡 Clue</button>
+                </div>
+
+                <div id="sentence-clue" class="clue-text">English clue here.</div>
+
+                <h2>Complete the Spanish Sentence</h2>
+                <p class="subtitle">Choose the matching colour to fill in the blank:</p>
+                
+                <div id="sentence-emoji" class="emoji-hero" style="font-size: 3.5rem;">🍓</div>
+                
+                <div class="sentence-display">
+                    <span id="sentence-prefix">La fresa es</span>
+                    <span class="blank-slot" id="sentence-blank">___</span>
+                    <button class="audio-btn" onclick="speakCurrentText('sentence')" title="Hear full sentence">🔊</button>
+                </div>
+                <p id="sentence-translation" style="font-size: 0.9rem; color: var(--text-muted); font-style: italic;">The strawberry is red.</p>
+                
+                <div class="options-bank" id="sentence-options">
+                    <!-- Word Pills Injected by JS -->
+                </div>
+
+                <div id="sentence-feedback" class="feedback-box"></div>
+                <button id="sentence-next" class="btn" style="display: none;" onclick="nextSentence()">Next Sentence ➡️</button>
+            </div>
+        </div>
+
+        <!-- 4. WORD SCRAMBLE VIEW -->
+        <div id="view-puzzles" class="view">
+            <div class="card">
+                <div class="card-header-badge">Activity 3 • Word Scramble</div>
+
+                <div class="clue-box">
+                    <span id="puzzle-counter" style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Word 1 of 6</span>
+                    <button class="clue-btn" onclick="showClue('puzzle-clue')">💡 Clue</button>
+                </div>
+
+                <div id="puzzle-clue" class="clue-text">Spell the Spanish colour word.</div>
+
+                <h2>Spell the Colour in Spanish</h2>
+                <p class="subtitle">Tap the letter tiles to spell the word:</p>
+                
+                <div id="puzzle-emoji" class="emoji-hero" style="font-size: 3.5rem;">🔴</div>
+                <p id="puzzle-target-en" style="font-size: 1.1rem; font-weight: 800; color: var(--primary);">RED</p>
+                
+                <!-- Target Slots -->
+                <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-top: 10px; text-align: left;">Your Word:</p>
+                <div class="tiles-container" id="puzzle-target"></div>
+
+                <!-- Source Tiles -->
+                <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-align: left;">Available Letters:</p>
+                <div class="tiles-container" id="puzzle-source"></div>
+
+                <div id="puzzle-feedback" class="feedback-box"></div>
+                <button id="puzzle-check" class="btn" onclick="checkPuzzle()">Check Spelling ✔️</button>
+                <button id="puzzle-next" class="btn" style="display: none;" onclick="nextPuzzle()">Next Word ➡️</button>
+            </div>
+        </div>
+
+        <!-- 5. COLOUR LAB VIEW -->
+        <div id="view-mixing" class="view">
+            <div class="card">
+                <div class="card-header-badge">Activity 4 • Colour Mixing Lab</div>
+
+                <div class="clue-box">
+                    <span id="mix-counter" style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Experiment 1 of 3</span>
+                    <button class="clue-btn" onclick="showClue('mix-clue')">💡 Clue</button>
+                </div>
+
+                <div id="mix-clue" class="clue-text">Mix two primary colours.</div>
+
+                <h2>Spanish Colour Lab 🧪</h2>
+                <p class="subtitle" id="mix-goal-text">Mix two colours to create: <strong>VERDE (Green)</strong></p>
+                
+                <div class="color-selector">
+                    <div class="color-dot" id="dot-rojo" style="background-color: #EF4444;" onclick="selectMixDot('Rojo', '#EF4444', 'dot-rojo')">Rojo</div>
+                    <div class="color-dot" id="dot-azul" style="background-color: #3B82F6;" onclick="selectMixDot('Azul', '#3B82F6', 'dot-azul')">Azul</div>
+                    <div class="color-dot" id="dot-amarillo" style="background-color: #EAB308;" onclick="selectMixDot('Amarillo', '#EAB308', 'dot-amarillo')">Amarillo</div>
+                </div>
+
+                <div class="mixing-flasks">
+                    <div class="flask" id="mix-slot-1">?</div>
+                    <span>+</span>
+                    <div class="flask" id="mix-slot-2">?</div>
+                    <span>=</span>
+                    <div class="flask result-flask" id="mix-result-flask">?</div>
+                </div>
+
+                <div id="mix-feedback" class="feedback-box"></div>
+                <button id="mix-btn" class="btn" onclick="mixSelectedColours()" disabled>Mix Colours! 🧪</button>
+                <button id="mix-next" class="btn" style="display: none;" onclick="nextMixExperiment()">Next Experiment ➡️</button>
+            </div>
+        </div>
+
+        <!-- 6. MATCHING VIEW -->
+        <div id="view-matching" class="view">
+            <div class="card">
+                <div class="card-header-badge">Activity 5 • Pairs Challenge</div>
+
+                <div class="clue-box">
+                    <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">Match all 6 pairs</span>
+                    <button class="clue-btn" onclick="showClue('match-clue')">💡 Clue</button>
+                </div>
+
+                <div id="match-clue" class="clue-text">Match the Spanish colour word with its colour emoji circle!</div>
+
+                <h2>Matching Pairs Challenge</h2>
+                <p class="subtitle">Find and match all the pairs:</p>
+                
+                <div class="memory-board" id="memory-board">
+                    <!-- Cards Injected by JS -->
+                </div>
+                
+                <div id="match-feedback" class="feedback-box"></div>
+                <button id="match-next" class="btn" style="display: none;" onclick="finishAllActivities()">View Final Results 🏆</button>
+            </div>
+        </div>
+
+        <!-- 7. RESULTS VIEW -->
+        <div id="view-results" class="view">
+            <div class="card">
+                <div class="emoji-hero">🏆🎉</div>
+                <h2 id="result-title">Well Done, Explorer!</h2>
+                <p class="subtitle">You have completed Chapter 1: Spanish Colours</p>
+                
+                <div style="margin: 24px 0; padding: 20px; background: #F8FAFC; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                    <div style="font-size: 3rem; margin-bottom: 8px;" id="result-stars">⭐⭐⭐</div>
+                    <h3 id="result-score" style="font-size: 1.5rem; color: var(--primary);">Score: 0 pts</h3>
+                    <p id="result-clues" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">English Clues Used: 0</p>
+                </div>
+
+                <button class="btn" onclick="restartApplication()">Practise Again 🔄</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (UK English) -->
+    <nav id="bottom-nav">
+        <button class="nav-btn active" onclick="navigateTo('quiz')" id="nav-quiz">
+            <span class="nav-icon">🎮</span>
+            <span>Quiz</span>
+        </button>
+        <button class="nav-btn" onclick="navigateTo('sentences')" id="nav-sentences">
+            <span class="nav-icon">✍️</span>
+            <span>Sentences</span>
+        </button>
+        <button class="nav-btn" onclick="navigateTo('puzzles')" id="nav-puzzles">
+            <span class="nav-icon">🧩</span>
+            <span>Letters</span>
+        </button>
+        <button class="nav-btn" onclick="navigateTo('mixing')" id="nav-mixing">
+            <span class="nav-icon">🧪</span>
+            <span>Lab</span>
+        </button>
+        <button class="nav-btn" onclick="navigateTo('matching')" id="nav-matching">
+            <span class="nav-icon">🃏</span>
+            <span>Pairs</span>
+        </button>
+    </nav>
+</div>
+
+<script>
+    /* ==========================================================================
+       APPLICATION STATE
+       ========================================================================== */
+    const state = {
+        name: localStorage.getItem('aura_uk_name') || '',
+        focusMode: localStorage.getItem('aura_uk_focus') === 'true',
+        cluesUsed: 0,
+        score: 0,
+        
+        quiz: { index: 0, items: [] },
+        sentence: { index: 0, items: [] },
+        puzzle: { index: 0, items: [] },
+        mix: { step: 0 },
+        matching: { matchedPairs: 0 }
+    };
+
+    /* ==========================================================================
+       CURRICULUM DATA (Spanish Target Language + UK English Scaffolding)
+       ========================================================================== */
+    const quizData = [
+        { q: "¿De qué color es la fresa?", en: "What colour is the strawberry?", emoji: "🍓", ans: "roja", options: ["roja", "azul", "verde", "amarilla"] },
+        { q: "¿De qué color es el plátano?", en: "What colour is the banana?", emoji: "🍌", ans: "amarillo", options: ["rojo", "amarillo", "morado", "verde"] },
+        { q: "¿De qué color es el cielo?", en: "What colour is the sky?", emoji: "☁️", ans: "azul", options: ["naranja", "azul", "verde", "rojo"] },
+        { q: "¿De qué color es la hierba?", en: "What colour is the grass?", emoji: "🌱", ans: "verde", options: ["morada", "azul", "verde", "naranja"] },
+        { q: "¿De qué color es la naranja?", en: "What colour is the orange?", emoji: "🍊", ans: "naranja", options: ["naranja", "amarilla", "roja", "azul"] },
+        { q: "¿De qué color es la uva?", en: "What colour is the grape?", emoji: "🍇", ans: "morada", options: ["verde", "roja", "morada", "amarilla"] },
+        { q: "¿Qué color sale al mezclar rojo y azul?", en: "What colour is made by mixing red and blue?", emoji: "🔴+🔵", ans: "morado", options: ["verde", "morado", "naranja", "amarillo"] },
+        { q: "¿De qué color es el sol?", en: "What colour is the sun?", emoji: "☀️", ans: "amarillo", options: ["blanco", "azul", "amarillo", "rojo"] },
+        { q: "¿De qué color es la rana?", en: "What colour is the frog?", emoji: "🐸", ans: "verde", options: ["verde", "morada", "naranja", "roja"] },
+        { q: "¿De qué color es el limón?", en: "What colour is the lemon?", emoji: "🍋", ans: "amarillo", options: ["naranja", "azul", "rojo", "amarillo"] }
+    ];
+
+    const sentenceData = [
+        { prefix: "La fresa es", ans: "roja", emoji: "🍓", en: "The strawberry is red." },
+        { prefix: "El plátano es", ans: "amarillo", emoji: "🍌", en: "The banana is yellow." },
+        { prefix: "El cielo es", ans: "azul", emoji: "☁️", en: "The sky is blue." },
+        { prefix: "La hierba es", ans: "verde", emoji: "🌱", en: "The grass is green." },
+        { prefix: "La naranja es", ans: "naranja", emoji: "🍊", en: "The orange is orange." },
+        { prefix: "La uva es", ans: "morada", emoji: "🍇", en: "The grape is purple." },
+        { prefix: "El sol es", ans: "amarillo", emoji: "☀️", en: "The sun is yellow." },
+        { prefix: "La rana es", ans: "verde", emoji: "🐸", en: "The frog is green." }
+    ];
+
+    const puzzleData = [
+        { word: "ROJO", emoji: "🔴", en: "RED" },
+        { word: "AZUL", emoji: "🔵", en: "BLUE" },
+        { word: "AMARILLO", emoji: "🟡", en: "YELLOW" },
+        { word: "VERDE", emoji: "🟢", en: "GREEN" },
+        { word: "NARANJA", emoji: "🟠", en: "ORANGE" },
+        { word: "MORADO", emoji: "🟣", en: "PURPLE" }
+    ];
+
+    const mixData = [
+        { c1: "Azul", c2: "Amarillo", res: "Verde", en: "Green", hex: "#22C55E" },
+        { c1: "Rojo", c2: "Amarillo", res: "Naranja", en: "Orange", hex: "#F97316" },
+        { c1: "Rojo", c2: "Azul", res: "Morado", en: "Purple", hex: "#A855F7" }
+    ];
+
+    const matchCardPairs = [
+        { id: 1, val: "Rojo", label: "Rojo" },
+        { id: 1, val: "🔴", label: "Red Circle" },
+        { id: 2, val: "Azul", label: "Azul" },
+        { id: 2, val: "🔵", label: "Blue Circle" },
+        { id: 3, val: "Amarillo", label: "Amarillo" },
+        { id: 3, val: "🟡", label: "Yellow Circle" },
+        { id: 4, val: "Verde", label: "Verde" },
+        { id: 4, val: "🟢", label: "Green Circle" },
+        { id: 5, val: "Naranja", label: "Naranja" },
+        { id: 5, val: "🟠", label: "Orange Circle" },
+        { id: 6, val: "Morado", label: "Morado" },
+        { id: 6, val: "🟣", label: "Purple Circle" }
+    ];
+
+    /* ==========================================================================
+       INITIALISATION & SPEECH SYNTHESIS
+       ========================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+        if (state.name) {
+            document.getElementById('studentName').value = state.name;
+        }
+        applyTheme();
+    });
+
+    function speakSpanish(text) {
+        if (!('speechSynthesis' in window)) return;
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'es-ES';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function speakCurrentText(type) {
+        if (type === 'quiz') {
+            const cur = state.quiz.items[state.quiz.index];
+            if (cur) speakSpanish(cur.q);
+        } else if (type === 'sentence') {
+            const cur = state.sentence.items[state.sentence.index];
+            if (cur) speakSpanish(cur.prefix + " " + cur.ans);
+        }
+    }
+
+    /* ==========================================================================
+       FOCUS MODE (NEURODIVERSITY SUPPORT)
+       ========================================================================== */
+    function toggleFocusMode() {
+        state.focusMode = !state.focusMode;
+        localStorage.setItem('aura_uk_focus', state.focusMode);
+        applyTheme();
+    }
+
+    function applyTheme() {
+        const toggleBtn = document.getElementById('focusToggle');
+        if (state.focusMode) {
+            document.body.setAttribute('data-theme', 'focus');
+            toggleBtn.innerHTML = '<span>🌈</span> Normal Mode';
+        } else {
+            document.body.removeAttribute('data-theme');
+            toggleBtn.innerHTML = '<span>🧠</span> Focus Mode';
+        }
+    }
+
+    /* ==========================================================================
+       FEEDBACK & CELEBRATION
+       ========================================================================== */
+    function showClue(id) {
+        state.cluesUsed++;
+        const el = document.getElementById(id);
+        if (el) el.classList.add('show');
+    }
+
+    function triggerConfetti() {
+        if (state.focusMode) return; // Calm mode avoids sensory overload
+        const colors = ['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#EC4899', '#8B5CF6'];
+        for (let i = 0; i < 35; i++) {
+            const piece = document.createElement('div');
+            piece.className = 'confetti-piece';
+            piece.style.left = Math.random() * 100 + 'vw';
+            piece.style.top = '-10px';
+            piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+            piece.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+            document.body.appendChild(piece);
+            setTimeout(() => piece.remove(), 4000);
+        }
+    }
+
+    function displayFeedback(elementId, isCorrect, message) {
+        const box = document.getElementById(elementId);
+        box.textContent = message;
+        box.className = 'feedback-box show ' + (isCorrect ? 'feedback-correct' : 'feedback-wrong');
+    }
+
+    /* ==========================================================================
+       VIEW NAVIGATION
+       ========================================================================== */
+    function navigateTo(viewName) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        const targetView = document.getElementById('view-' + viewName);
+        if (targetView) targetView.classList.add('active');
+
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        const activeNavBtn = document.getElementById('nav-' + viewName);
+        if (activeNavBtn) activeNavBtn.classList.add('active');
+
+        // Hide all clues on tab switch
+        document.querySelectorAll('.clue-text').forEach(el => el.classList.remove('show'));
+
+        if (viewName === 'quiz') renderQuiz();
+        if (viewName === 'sentences') renderSentence();
+        if (viewName === 'puzzles') renderPuzzle();
+        if (viewName === 'mixing') renderMixLab();
+        if (viewName === 'matching') renderMatching();
+        if (viewName === 'results') renderFinalResults();
+    }
+
+    function startApp() {
+        const inputName = document.getElementById('studentName').value.trim();
+        state.name = inputName || 'Star Pupil';
+        localStorage.setItem('aura_uk_name', state.name);
+
+        state.quiz.items = [...quizData].sort(() => Math.random() - 0.5);
+        state.sentence.items = [...sentenceData].sort(() => Math.random() - 0.5);
+        state.puzzle.items = [...puzzleData];
+        state.score = 0;
+        state.cluesUsed = 0;
+
+        state.quiz.index = 0;
+        state.sentence.index = 0;
+        state.puzzle.index = 0;
+        state.mix.step = 0;
+
+        document.getElementById('mainProgress').classList.add('active');
+        document.getElementById('bottom-nav').classList.add('active');
+
+        navigateTo('quiz');
+    }
+
+    function updateProgressBar(percentage) {
+        document.getElementById('mainProgressFill').style.width = percentage + '%';
+    }
+
+    /* ==========================================================================
+       1. KAHOOT QUIZ LOGIC
+       ========================================================================== */
+    function renderQuiz() {
+        if (state.quiz.index >= state.quiz.items.length) {
+            navigateTo('sentences');
+            return;
+        }
+
+        const current = state.quiz.items[state.quiz.index];
+        document.getElementById('quiz-counter').textContent = `Question ${state.quiz.index + 1} of ${state.quiz.items.length}`;
+        document.getElementById('quiz-question').textContent = current.q;
+        document.getElementById('quiz-en-sub').textContent = `(${current.en})`;
+        document.getElementById('quiz-clue').textContent = `🇬🇧 English Clue: ${current.en}`;
+        document.getElementById('quiz-emoji').textContent = current.emoji;
+        document.getElementById('quiz-feedback').classList.remove('show');
+        document.getElementById('quiz-next').style.display = 'none';
+
+        const grid = document.getElementById('quiz-options');
+        grid.innerHTML = '';
+        const colorClasses = ['btn-red', 'btn-blue', 'btn-yellow', 'btn-green'];
+
+        current.options.forEach((opt, idx) => {
+            const btn = document.createElement('button');
+            btn.className = `quiz-btn ${colorClasses[idx % 4]}`;
+            btn.textContent = opt;
+            btn.onclick = () => evaluateQuizAnswer(opt);
+            grid.appendChild(btn);
+        });
+
+        updateProgressBar((state.quiz.index / state.quiz.items.length) * 20);
+    }
+
+    function evaluateQuizAnswer(selectedOption) {
+        const current = state.quiz.items[state.quiz.index];
+        const buttons = document.querySelectorAll('.quiz-btn');
+        buttons.forEach(b => b.disabled = true);
+
+        if (selectedOption === current.ans) {
+            state.score += 10;
+            speakSpanish(current.ans);
+            displayFeedback('quiz-feedback', true, `Brilliant! (¡Excelente!) ${current.ans.toUpperCase()} is correct.`);
+            triggerConfetti();
+            document.getElementById('quiz-next').style.display = 'inline-flex';
+        } else {
+            displayFeedback('quiz-feedback', false, `Almost! Have another go. (¡Casi! Intenta de nuevo.)`);
+            setTimeout(() => {
+                buttons.forEach(b => b.disabled = false);
+                document.getElementById('quiz-feedback').classList.remove('show');
+            }, 1400);
+        }
+    }
+
+    function nextQuizQuestion() {
+        state.quiz.index++;
+        renderQuiz();
+    }
+
+    /* ==========================================================================
+       2. SENTENCE BUILDER LOGIC
+       ========================================================================== */
+    function renderSentence() {
+        if (state.sentence.index >= state.sentence.items.length) {
+            navigateTo('puzzles');
+            return;
+        }
+
+        const current = state.sentence.items[state.sentence.index];
+        document.getElementById('sentence-counter').textContent = `Sentence ${state.sentence.index + 1} of ${state.sentence.items.length}`;
+        document.getElementById('sentence-emoji').textContent = current.emoji;
+        document.getElementById('sentence-prefix').textContent = current.prefix;
+        document.getElementById('sentence-blank').textContent = '___';
+        document.getElementById('sentence-translation').textContent = current.en;
+        document.getElementById('sentence-clue').textContent = `🇬🇧 Clue: In English, this is "${current.en}"`;
+        document.getElementById('sentence-feedback').classList.remove('show');
+        document.getElementById('sentence-next').style.display = 'none';
+
+        const optionsBox = document.getElementById('sentence-options');
+        optionsBox.innerHTML = '';
+
+        let choices = [current.ans];
+        const allColours = ["rojo", "azul", "amarillo", "verde", "naranja", "morada", "morado", "roja", "amarilla"];
+        while (choices.length < 3) {
+            const randomColour = allColours[Math.floor(Math.random() * allColours.length)];
+            if (!choices.includes(randomColour)) choices.push(randomColour);
+        }
+        choices.sort(() => Math.random() - 0.5);
+
+        choices.forEach(word => {
+            const pill = document.createElement('button');
+            pill.className = 'word-pill';
+            pill.textContent = word;
+            pill.onclick = () => selectSentenceWord(word);
+            optionsBox.appendChild(pill);
+        });
+
+        updateProgressBar(20 + (state.sentence.index / state.sentence.items.length) * 20);
+    }
+
+    function selectSentenceWord(word) {
+        document.getElementById('sentence-blank').textContent = word;
+        const current = state.sentence.items[state.sentence.index];
+
+        if (word === current.ans) {
+            state.score += 10;
+            speakSpanish(current.prefix + " " + current.ans);
+            displayFeedback('sentence-feedback', true, `Splendid! (¡Muy bien!) "${current.prefix} ${current.ans}"`);
+            triggerConfetti();
+            document.querySelectorAll('.word-pill').forEach(btn => btn.disabled = true);
+            document.getElementById('sentence-next').style.display = 'inline-flex';
+        } else {
+            displayFeedback('sentence-feedback', false, `Not quite. Try another colour for the ${current.prefix.toLowerCase()}!`);
+        }
+    }
+
+    function nextSentence() {
+        state.sentence.index++;
+        renderSentence();
+    }
+
+    /* ==========================================================================
+       3. WORD SCRAMBLE LOGIC
+       ========================================================================== */
+    function renderPuzzle() {
+        if (state.puzzle.index >= state.puzzle.items.length) {
+            navigateTo('mixing');
+            return;
+        }
+
+        const current = state.puzzle.items[state.puzzle.index];
+        document.getElementById('puzzle-counter').textContent = `Word ${state.puzzle.index + 1} of ${state.puzzle.items.length}`;
+        document.getElementById('puzzle-emoji').textContent = current.emoji;
+        document.getElementById('puzzle-target-en').textContent = current.en;
+        document.getElementById('puzzle-clue').textContent = `🇬🇧 Clue: In Spanish, "${current.en}" starts with "${current.word[0]}".`;
+        document.getElementById('puzzle-feedback').classList.remove('show');
+        document.getElementById('puzzle-next').style.display = 'none';
+        document.getElementById('puzzle-check').style.display = 'inline-flex';
+
+        const source = document.getElementById('puzzle-source');
+        const target = document.getElementById('puzzle-target');
+        source.innerHTML = '';
+        target.innerHTML = '';
+
+        const letters = current.word.split('').sort(() => Math.random() - 0.5);
+
+        letters.forEach((char) => {
+            const tile = document.createElement('div');
+            tile.className = 'letter-tile';
+            tile.textContent = char;
+            tile.onclick = () => {
+                if (tile.parentElement.id === 'puzzle-source') {
+                    target.appendChild(tile);
+                } else {
+                    source.appendChild(tile);
+                }
+            };
+            source.appendChild(tile);
+        });
+
+        updateProgressBar(40 + (state.puzzle.index / state.puzzle.items.length) * 20);
+    }
+
+    function checkPuzzle() {
+        const target = document.getElementById('puzzle-target');
+        let constructedWord = '';
+        target.childNodes.forEach(node => {
+            if (node.textContent) constructedWord += node.textContent;
+        });
+
+        const current = state.puzzle.items[state.puzzle.index];
+
+        if (constructedWord === current.word) {
+            state.score += 15;
+            speakSpanish(current.word);
+            displayFeedback('puzzle-feedback', true, `Well done! (¡Correcto!) You spelled ${current.word}.`);
+            triggerConfetti();
+            document.getElementById('puzzle-check').style.display = 'none';
+            document.getElementById('puzzle-next').style.display = 'inline-flex';
+        } else {
+            displayFeedback('puzzle-feedback', false, `Not quite yet. Keep arranging the letter tiles!`);
+        }
+    }
+
+    function nextPuzzle() {
+        state.puzzle.index++;
+        renderPuzzle();
+    }
+
+    /* ==========================================================================
+       4. COLOUR MIXING LAB LOGIC
+       ========================================================================== */
+    let activeMixSelection = [];
+
+    function renderMixLab() {
+        if (state.mix.step >= mixData.length) {
+            navigateTo('matching');
+            return;
+        }
+
+        activeMixSelection = [];
+        const currentExp = mixData[state.mix.step];
+        
+        document.getElementById('mix-counter').textContent = `Experiment ${state.mix.step + 1} of ${mixData.length}`;
+        document.getElementById('mix-goal-text').innerHTML = `Goal: Mix two colours to create: <strong>${currentExp.res.toUpperCase()} (${currentExp.en})</strong>`;
+        document.getElementById('mix-clue').textContent = `🇬🇧 Clue: Try mixing ${currentExp.c1} and ${currentExp.c2}!`;
+        
+        document.getElementById('mix-slot-1').style.backgroundColor = 'transparent';
+        document.getElementById('mix-slot-1').textContent = '?';
+        document.getElementById('mix-slot-2').style.backgroundColor = 'transparent';
+        document.getElementById('mix-slot-2').textContent = '?';
+        
+        const finalFlask = document.getElementById('mix-result-flask');
+        finalFlask.style.backgroundColor = 'transparent';
+        finalFlask.style.borderColor = '#94A3B8';
+        finalFlask.textContent = '?';
+
+        document.querySelectorAll('.color-dot').forEach(dot => dot.classList.remove('selected'));
+        
+        const mixBtn = document.getElementById('mix-btn');
+        mixBtn.disabled = true;
+        mixBtn.style.display = 'inline-flex';
+        
+        document.getElementById('mix-next').style.display = 'none';
+        document.getElementById('mix-feedback').classList.remove('show');
+
+        updateProgressBar(60 + (state.mix.step / mixData.length) * 20);
+    }
+
+    function selectMixDot(name, hex, dotId) {
+        const dot = document.getElementById(dotId);
+        
+        if (dot.classList.contains('selected')) {
+            dot.classList.remove('selected');
+            activeMixSelection = activeMixSelection.filter(item => item.name !== name);
+        } else if (activeMixSelection.length < 2) {
+            dot.classList.add('selected');
+            activeMixSelection.push({ name, hex, dotId });
+        }
+
+        // Update visual slots
+        const slot1 = document.getElementById('mix-slot-1');
+        const slot2 = document.getElementById('mix-slot-2');
+        
+        slot1.style.backgroundColor = activeMixSelection[0] ? activeMixSelection[0].hex : 'transparent';
+        slot1.textContent = activeMixSelection[0] ? '' : '?';
+        
+        slot2.style.backgroundColor = activeMixSelection[1] ? activeMixSelection[1].hex : 'transparent';
+        slot2.textContent = activeMixSelection[1] ? '' : '?';
+
+        document.getElementById('mix-btn').disabled = (activeMixSelection.length !== 2);
+    }
+
+    function mixSelectedColours() {
+        const currentExp = mixData[state.mix.step];
+        const names = activeMixSelection.map(i => i.name);
+        const hasC1 = names.includes(currentExp.c1);
+        const hasC2 = names.includes(currentExp.c2);
+
+        if (hasC1 && hasC2) {
+            state.score += 20;
+            speakSpanish(currentExp.res);
+            const flask = document.getElementById('mix-result-flask');
+            flask.style.backgroundColor = currentExp.hex;
+            flask.style.borderColor = currentExp.hex;
+            flask.textContent = '';
+            
+            displayFeedback('mix-feedback', true, `Magic! (¡Magia!) You created ${currentExp.res} (${currentExp.en})!`);
+            triggerConfetti();
+            document.getElementById('mix-btn').style.display = 'none';
+            document.getElementById('mix-next').style.display = 'inline-flex';
+        } else {
+            displayFeedback('mix-feedback', false, `That recipe makes a different colour! Try another combination.`);
+            document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('selected'));
+            activeMixSelection = [];
+            document.getElementById('mix-slot-1').style.backgroundColor = 'transparent';
+            document.getElementById('mix-slot-1').textContent = '?';
+            document.getElementById('mix-slot-2').style.backgroundColor = 'transparent';
+            document.getElementById('mix-slot-2').textContent = '?';
+            document.getElementById('mix-btn').disabled = true;
+        }
+    }
+
+    function nextMixExperiment() {
+        state.mix.step++;
+        renderMixLab();
+    }
+
+    /* ==========================================================================
+       5. MATCHING PAIRS LOGIC
+       ========================================================================== */
+    let firstFlippedCard = null;
+    let isBoardLocked = false;
+
+    function renderMatching() {
+        updateProgressBar(80);
+        document.getElementById('match-clue').textContent = "🇬🇧 Match each Spanish word (e.g. Rojo) with its colour circle (🔴).";
+        document.getElementById('match-feedback').classList.remove('show');
+        document.getElementById('match-next').style.display = 'none';
+
+        const board = document.getElementById('memory-board');
+        board.innerHTML = '';
+        state.matching.matchedPairs = 0;
+        firstFlippedCard = null;
+        isBoardLocked = false;
+
+        const shuffledCards = [...matchCardPairs].sort(() => Math.random() - 0.5);
+
+        shuffledCards.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'memory-card';
+            card.dataset.id = item.id;
+            card.dataset.val = item.val;
+            card.innerHTML = `<span>${item.val}</span>`;
+            card.onclick = () => flipMemoryCard(card);
+            board.appendChild(card);
+        });
+    }
+
+    function flipMemoryCard(card) {
+        if (isBoardLocked || card === firstFlippedCard || card.classList.contains('matched')) return;
+
+        card.classList.add('flipped');
+
+        if (!firstFlippedCard) {
+            firstFlippedCard = card;
+            if (card.dataset.val.length > 2) speakSpanish(card.dataset.val);
+            return;
+        }
+
+        // Second card flipped
+        const secondCard = card;
+        if (secondCard.dataset.val.length > 2) speakSpanish(secondCard.dataset.val);
+
+        if (firstFlippedCard.dataset.id === secondCard.dataset.id) {
+            firstFlippedCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            firstFlippedCard = null;
+            state.matching.matchedPairs++;
+            state.score += 10;
+
+            if (state.matching.matchedPairs === 6) {
+                displayFeedback('match-feedback', true, `Superb! (¡Excelente!) You matched all 6 Spanish colour pairs!`);
+                triggerConfetti();
+                document.getElementById('match-next').style.display = 'inline-flex';
+                updateProgressBar(100);
+            }
+        } else {
+            isBoardLocked = true;
+            displayFeedback('match-feedback', false, `Keep looking! Flip another pair.`);
+            setTimeout(() => {
+                firstFlippedCard.classList.remove('flipped');
+                secondCard.classList.remove('flipped');
+                firstFlippedCard = null;
+                isBoardLocked = false;
+                document.getElementById('match-feedback').classList.remove('show');
+            }, 900);
+        }
+    }
+
+    function finishAllActivities() {
+        navigateTo('results');
+    }
+
+    /* ==========================================================================
+       6. FINAL RESULTS & SUMMARY
+       ========================================================================== */
+    function renderFinalResults() {
+        document.getElementById('bottom-nav').style.display = 'none';
+        document.getElementById('mainProgress').style.display = 'none';
+
+        document.getElementById('result-title').textContent = `Well Done, ${state.name}! 🌟`;
+        document.getElementById('result-score').textContent = `Total Score: ${state.score} pts`;
+        document.getElementById('result-clues').textContent = `English Clues Used: ${state.cluesUsed}`;
+
+        let stars = "⭐";
+        if (state.score >= 120) stars = "⭐⭐";
+        if (state.score >= 200) stars = "⭐⭐⭐";
+        document.getElementById('result-stars').textContent = stars;
+
+        triggerConfetti();
+    }
+
+    function restartApplication() {
+        document.getElementById('bottom-nav').style.display = 'flex';
+        document.getElementById('mainProgress').style.display = 'block';
+        navigateTo('welcome');
+    }
+</script>
+</body>
+</html>
