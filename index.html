@@ -843,7 +843,8 @@
                 <p class="subtitle">Tap the letter tiles to spell the word:</p>
                 
                 <div id="puzzle-emoji" class="emoji-hero" style="font-size: 3.5rem;">🔴</div>
-                <p id="puzzle-target-en" style="font-size: 1.1rem; font-weight: 800; color: var(--primary);">RED / ROJO</p>
+                <!-- MODIFICADO: Solo muestra el color en inglés debajo del círculo -->
+                <p id="puzzle-target-en" style="font-size: 1.1rem; font-weight: 800; color: var(--primary);">RED</p>
                 
                 <!-- Target Slots -->
                 <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-top: 10px; text-align: left;">Your Word:</p>
@@ -1066,12 +1067,9 @@
        GENERADOR DE GRÁFICOS SVG PERSONALIZADOS (PARA REEMPLAZAR EMOJIS CON FALLOS EN WINDOWS)
        ========================================================================== */
     function getCustomGraphic(emoji) {
-        // SVG personalizado para el cielo y la nube
         if (emoji.includes('🌤')) {
             return `<svg viewBox="0 0 100 100" width="120" height="120" style="margin: 0 auto 10px auto; display: block; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));">
-                <!-- Fondo Cielo Azul Oscuro (Mismo que el botón "azul": #1368CE) -->
                 <circle cx="50" cy="50" r="50" fill="#1368CE" />
-                <!-- Sol Amarillo Atrás -->
                 <circle cx="35" cy="40" r="14" fill="#FFD700" />
                 <g stroke="#FFD700" stroke-width="2.5" stroke-linecap="round">
                     <line x1="35" y1="18" x2="35" y2="23" />
@@ -1083,7 +1081,6 @@
                     <line x1="51" y1="24" x2="47" y2="28" />
                     <line x1="19" y1="56" x2="23" y2="52" />
                 </g>
-                <!-- Nube Blanca al Frente -->
                 <g fill="#FFFFFF">
                     <circle cx="45" cy="65" r="12" />
                     <circle cx="60" cy="53" r="16" />
@@ -1093,7 +1090,6 @@
             </svg>`;
         }
         
-        // SVG personalizado para el Sol solo
         if (emoji.includes('☀')) {
             return `<svg viewBox="0 0 100 100" width="120" height="120" style="margin: 0 auto 10px auto; display: block; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
                 <circle cx="50" cy="50" r="22" fill="#FFD700" />
@@ -1109,7 +1105,7 @@
                 </g>
             </svg>`;
         }
-        return emoji; // Retorna el texto normal si no es el sol o el cielo
+        return emoji;
     }
 
     /* ==========================================================================
@@ -1272,7 +1268,7 @@
     function getQuizButtonStyles(colorWord) {
         const colors = {
             'rojo': { bg: '#E21B3C', text: '#FFFFFF' },
-            'azul': { bg: '#1368CE', text: '#FFFFFF' }, // <--- Mismo azul usado en el SVG (#1368CE)
+            'azul': { bg: '#1368CE', text: '#FFFFFF' },
             'amarillo': { bg: '#D89E00', text: '#FFFFFF' },
             'verde': { bg: '#26890C', text: '#FFFFFF' },
             'naranja': { bg: '#F97316', text: '#FFFFFF' },
@@ -1295,9 +1291,7 @@
         document.getElementById('quiz-clue').textContent = `🇬🇧 English Clue: ${current.en}`;
         
         const emojiContainer = document.getElementById('quiz-emoji');
-        emojiContainer.className = 'emoji-hero'; // Limpia clases antiguas
-        
-        // Inserta el SVG en vez del emoji de texto
+        emojiContainer.className = 'emoji-hero';
         emojiContainer.innerHTML = getCustomGraphic(current.emoji);
 
         document.getElementById('quiz-feedback').classList.remove('show');
@@ -1364,8 +1358,6 @@
         
         const emojiContainer = document.getElementById('sentence-emoji');
         emojiContainer.className = 'emoji-hero';
-        
-        // Aplica también el SVG personalizado para las oraciones
         emojiContainer.innerHTML = getCustomGraphic(current.emoji);
 
         document.getElementById('sentence-prefix').textContent = current.prefix;
@@ -1434,7 +1426,8 @@
         document.getElementById('puzzle-counter').textContent = `Word ${state.puzzle.index + 1} of ${state.puzzle.items.length}`;
         document.getElementById('puzzle-emoji').innerHTML = getCustomGraphic(current.emoji);
         
-        document.getElementById('puzzle-target-en').textContent = `${current.en} / ${current.word}`;
+        // MODIFICADO: Se asigna únicamente current.en para mostrar solo el nombre del color en inglés
+        document.getElementById('puzzle-target-en').textContent = current.en;
         
         document.getElementById('puzzle-clue').textContent = `🇬🇧 Clue: In Spanish, "${current.en}" starts with "${current.word[0]}".`;
         document.getElementById('puzzle-feedback').classList.remove('show');
